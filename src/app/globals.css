@@ -41,6 +41,40 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Градиенты */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-foreground) 100%);
+  --gradient-primary-to-secondary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-foreground) 100%);
+  --gradient-warm: linear-gradient(135deg, oklch(0.837 0.128 66.29) 0%, oklch(0.705 0.213 47.604) 100%);
+  --gradient-cool: linear-gradient(135deg, oklch(0.646 0.222 41.116) 0%, oklch(0.553 0.195 38.402) 100%);
+  --gradient-soft: linear-gradient(135deg, var(--card) 0%, var(--popover) 100%);
+  --gradient-vibrant: linear-gradient(135deg, oklch(0.837 0.128 66.29) 0%, oklch(0.646 0.222 41.116) 50%, oklch(0.47 0.157 37.304) 100%);
+  --gradient-muted: linear-gradient(135deg, var(--muted) 0%, var(--muted-foreground) 100%);
+
+  /* Radial градиенты */
+  --gradient-radial: radial-gradient(circle at center, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-radial-accent: radial-gradient(circle at 30% 50%, var(--accent) 0%, var(--background) 100%);
+  --gradient-radial-soft: radial-gradient(circle at center, var(--card) 0%, var(--background) 100%);
+
+  /* Conic градиенты (для спиннеров, рингов) */
+  --gradient-conic: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+
+  /* Директиональные градиенты */
+  --gradient-to-right: linear-gradient(to right, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-to-bottom: linear-gradient(to bottom, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-to-top: linear-gradient(to top, var(--accent) 0%, var(--primary) 100%);
+  --gradient-to-left: linear-gradient(to left, var(--secondary) 0%, var(--primary) 100%);
+
+  /* Плавные переходы в oklch */
+  --gradient-smooth-primary: linear-gradient(in oklch, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-smooth-accent: linear-gradient(in oklch, var(--accent) 0%, var(--accent-foreground) 100%);
+
+  /* Диагональные градиенты (45deg разные углы) */
+  --gradient-diagonal-45: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-diagonal-135: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+  --gradient-diagonal-225: linear-gradient(225deg, var(--secondary) 0%, var(--accent) 100%);
+  --gradient-diagonal-315: linear-gradient(315deg, var(--primary) 0%, var(--secondary) 100%);
 }
 
 :root {
@@ -113,6 +147,7 @@
 }
 
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -122,3 +157,81 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  font-family: var(--font-main);
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+@utility bg-gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
+@utility bg-gradient-warm {
+  background-image: var(--gradient-warm);
+}
+
+@utility bg-gradient-cool {
+  background-image: var(--gradient-cool);
+}
+
+@utility bg-gradient-soft {
+  background-image: var(--gradient-soft);
+}
+
+@utility bg-gradient-radial {
+  background-image: var(--gradient-radial);
+}
+
+@utility bg-gradient-smooth-accent {
+  background-image: var(--gradient-smooth-accent);
+}
+
+@utility bg-linear-primary-90 {
+  background-image: linear-gradient(90deg, var(--gradient-primary));
+}
+
+@utility font-title {
+  font-family: var(--font-titles)
+}
+
+/* @keyframes rubik-glitch {
+
+  0%,
+  95% {
+    font-family: var(--font-rukik);
+    font-weight: 900;
+  }
+
+  5%,
+  10% {
+    font-family: var(--font-titles);
+    font-weight: 400;
+  }
+
+  15%,
+  20% {
+    font-family: var(--font-titles);
+    font-weight: 400;
+  }
+
+  25%,
+  90% {
+    font-family: var(--font-rukik);
+    font-weight: 900;
+  }
+} 
+
+.rubik-glitch {
+  animation: rubik-glitch 2s ease-in-out infinite;
+}
+
+*/
