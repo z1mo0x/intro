@@ -3,6 +3,7 @@ import { Geist, Rubik_Glitch, Rubik } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/header";
 import { ThemeProvider } from "next-themes";
+import AppLoader from "@/hoc/AppLoader";
 
 const main = Geist({
   variable: "--font-main",
@@ -38,17 +39,19 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} ${main.variable} ${glitch.variable} h-full antialiased`}
       >
-        <Header />
-        <ThemeProvider
-          attribute='class'
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className="h-[500vh]">
-            {children}
-          </main>
-        </ThemeProvider>
+        <AppLoader>
+          <Header />
+          <ThemeProvider
+            attribute='class'
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main className="h-[500vh]">
+              {children}
+            </main>
+          </ThemeProvider>
+        </AppLoader>
       </body>
     </html>
   );

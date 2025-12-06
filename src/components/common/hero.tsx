@@ -21,7 +21,7 @@ export default memo(function Hero() {
         margin: "-10% 0px 10% 0px"
     })
 
-    const y = useTransform(scrollYProgress, [0, 1], [0, 300])
+    const y = useTransform(scrollYProgress, [0, 1], [0, 200])
 
     return (
         <motion.div ref={ref}
@@ -43,8 +43,8 @@ export default memo(function Hero() {
                             fontFamily="inherit"
                             color="primary"
                             enableHover={true}
-                            baseIntensity={0.10}
-                            hoverIntensity={0.3}
+                            baseIntensity={.10}
+                            hoverIntensity={.5}
 
                         >
                             {'</Keyboard>'}

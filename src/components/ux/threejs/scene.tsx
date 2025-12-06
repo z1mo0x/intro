@@ -38,7 +38,7 @@ function KeyboardModel({ initialScale, initialPosition, ...props }: Props) {
             if ((child as THREE.Mesh).material) {
                 const keyboard = (child as THREE.Mesh).material as THREE.MeshStandardMaterial;
                 keyboard.transparent = true;
-                keyboard.opacity = THREE.MathUtils.lerp(0, 1, next)
+                keyboard.opacity = THREE.MathUtils.lerp(0, .2, next)
             }
         }))
 
@@ -54,7 +54,7 @@ function KeyboardModel({ initialScale, initialPosition, ...props }: Props) {
 
 export function Scene() {
     return (
-        <motion.div className={`fixed w-full h-full top-0 left-0`}>
+        <motion.div className={`fixed w-full h-full top-0 left-0 z-[-1]`}>
             <Canvas
                 camera={{ position: [0, 2, 3], fov: 35, near: 0.1, far: 100 }}
             >
