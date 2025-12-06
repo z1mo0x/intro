@@ -31,7 +31,7 @@ export default memo(function Hero() {
             className={`relative bg-linear-primary-90 pt-30`}
         >
             <div className="container">
-                <motion.div className="relative" transition={{ duration: .3 }}>
+                <motion.div className="relative" style={{ y }} transition={{ duration: .3 }}>
                     <motion.div
                         initial={{ opacity: 0, y: -100 }}
                         animate={{ opacity: 1, y: 0 }}
