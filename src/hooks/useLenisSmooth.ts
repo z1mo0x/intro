@@ -1,13 +1,24 @@
+// useLenisSmooth.ts
 'use client';
 
 import Lenis from '@studio-freight/lenis';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function useLenisSmooth() {
+
+
+    const [scrollRef, setScrollRef] = useState(typeof window !== 'undefined' ? window.scrollY : 0)
+
     useEffect(() => {
         const lenis = new Lenis({
             lerp: 0.1,
-            smoothWheel: true,  // сглаживать колесо мыши
+            smoothWheel: true,
+        });
+
+        lenis.scrollTo(scrollRef, { immediate: true });
+
+        lenis.on('scroll', (e: { scroll: number }) => {
+            setScrollRef(e.scroll)
         });
 
         function raf(time: number) {
@@ -21,4 +32,6 @@ export function useLenisSmooth() {
             lenis.destroy();
         };
     }, []);
+
+    return scrollRef
 }

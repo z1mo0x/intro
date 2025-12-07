@@ -21,7 +21,7 @@ export default memo(function Header() {
             initial={{ y: -100, scaleY: 0 }}
             animate={{ y: 0, scaleY: 1 }}
             transition={{ duration: .5, type: "spring", stiffness: 35 }}
-            className="bg-white/70 origin-top backdrop-blur-[2px] py-5 z-10 text-primary fixed w-full left-0 top-0 shadow-lg shadow-white/30">
+            className="bg-white/70 origin-top backdrop-blur-[5px] py-5 z-10 text-primary fixed w-full left-0 top-0 shadow-lg shadow-white/30">
             <div className="container">
                 <div className="flex justify-between items-center">
                     <div className="flex gap-10">

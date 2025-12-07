@@ -27,8 +27,9 @@ export default memo(function Hero() {
         <motion.div ref={ref}
             animate={{ scaleY: isInView ? .5 : 1 }}
             transition={{ duration: .5 }}
+            style={{ background: 'url(/hero-bg.png) center / cover no-repeat' }}
             viewport={{ once: false }}
-            className={`relative bg-linear-primary-90 pt-30`}
+            className={`h-screen relative bg-linear-primary-90 pt-30`}
         >
             <div className="container">
                 <motion.div className="relative" style={{ y }} transition={{ duration: .3 }}>
